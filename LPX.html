@@ -1,133 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>English Lesson Plan Template</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-    }
-    .container {
-      max-width: 600px;
-      margin: 24px auto;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 24px;
-    }
-    h2 {
-      text-align: center;
-      color: #2a5d84;
-      margin-bottom: 24px;
-    }
-    .form-group {
-      margin-bottom: 18px;
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      color: #23415d;
-      font-weight: 500;
-      font-size: 1rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #c2cfe0;
-      border-radius: 5px;
-      font-size: 1rem;
-      background: #f9fbfd;
-      transition: border-color 0.2s;
-      box-sizing: border-box;
-      resize: vertical;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #447ec9;
-      background: #fff;
-    }
-    textarea {
-      min-height: 60px;
-      max-height: 220px;
-    }
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-    button {
-      padding: 10px 18px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      background: #2a5d84;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #23415d;
-    }
-    @media (max-width: 600px) {
-      .container {
-        padding: 14px;
-      }
-      h2 {
-        font-size: 1.3rem;
-      }
-      button {
-        width: 100%;
-      }
-      .btn-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>English Lesson Plan Template</h2>
-    <form id="lessonPlanForm" autocomplete="off">
-      <div class="form-group">
-        <label for="teacherName">Teacher's Name</label>
-        <input type="text" id="teacherName" name="teacherName" required>
-      </div>
-      <div class="form-group">
-        <label for="class">Class / Grade</label>
-        <input type="text" id="class" name="class" required>
-      </div>
-      <div class="form-group">
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" required>
-      </div>
-      <div class="form-group">
-        <label for="objective">Objective</label>
-        <textarea id="objective" name="objective" placeholder="What is the aim of this lesson?" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="method">Method / Activities</label>
-        <textarea id="method" name="method" placeholder="Describe the teaching methods and activities." required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="conclusion">Conclusion</label>
-        <textarea id="conclusion" name="conclusion" placeholder="How will the lesson end or be summarized?" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="followup">Follow-up / Homework</label>
-        <textarea id="followup" name="followup" placeholder="Extensions, assignments, or next steps." required></textarea>
-      </div>
-      <div class="btn-row">
-        <button type="button" onclick="window.print()">Print</button>
-        <button type="reset" style="background:#a6b5c8;">Clear</button>
-      </div>
-    </form>
-  </div>
-</body>
-</html>
+const tensePatterns = {
+  present: [
+    "I eat breakfast every day.",
+    "She walks to the store.",
+    "We play football on weekends.",
+    "He usually studies at night.",
+    "They travel during summer.",
+    "The sun rises in the east.",
+    "Birds sing in the morning.",
+    "I read books in my free time."
+  ],
+  past: [
+    "I visited my grandmother last week.",
+    "She walked to the park yesterday.",
+    "We played basketball last Saturday.",
+    "He studied for his exam last night.",
+    "They traveled to Paris last year.",
+    "The sun set at 6 PM yesterday.",
+    "Birds sang beautifully last spring.",
+    "I read several novels last month."
+  ],
+  future: [
+    "I will eat breakfast tomorrow.",
+    "She will walk to the store next week.",
+    "We will play football next weekend.",
+    "He will study for his exam tonight.",
+    "They will travel to Spain next summer.",
+    "The sun will rise at 5 AM tomorrow.",
+    "Birds will sing more often in spring.",
+    "I will read new books this upcoming month."
+  ]
+};
