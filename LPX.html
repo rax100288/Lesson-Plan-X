@@ -1,32 +1,61 @@
-const tensePatterns = {
-  present: [
-    "I eat breakfast every day.",
-    "She walks to the store.",
-    "We play football on weekends.",
-    "He usually studies at night.",
-    "They travel during summer.",
-    "The sun rises in the east.",
-    "Birds sing in the morning.",
-    "I read books in my free time."
-  ],
-  past: [
-    "I visited my grandmother last week.",
-    "She walked to the park yesterday.",
-    "We played basketball last Saturday.",
-    "He studied for his exam last night.",
-    "They traveled to Paris last year.",
-    "The sun set at 6 PM yesterday.",
-    "Birds sang beautifully last spring.",
-    "I read several novels last month."
-  ],
-  future: [
-    "I will eat breakfast tomorrow.",
-    "She will walk to the store next week.",
-    "We will play football next weekend.",
-    "He will study for his exam tonight.",
-    "They will travel to Spain next summer.",
-    "The sun will rise at 5 AM tomorrow.",
-    "Birds will sing more often in spring.",
-    "I will read new books this upcoming month."
-  ]
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Tense Challenge Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { font-size: 24px; }
+        .tense { margin: 20px 0; }
+        button { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>RC Tense Challenge Game</h1>
+    <div class="tense" id="present-simple">
+        <h2>Present Simple</h2>
+        <button onclick="recognizeVoice('I play football.', 'present-simple')">I play football.</button>
+        <button onclick="recognizeVoice('She does not like tea.', 'present-simple')">She does not like tea.</button>
+        <button onclick="recognizeVoice('Do you read books?', 'present-simple')">Do you read books?</button>
+        <button onclick="recognizeVoice('He goes to school.', 'present-simple')">He goes to school.</button>
+        <button onclick="recognizeVoice('They play chess.', 'present-simple')">They play chess.</button>
+        <button onclick="recognizeVoice('We do not watch TV.', 'present-simple')">We do not watch TV.</button>
+        <button onclick="recognizeVoice('Do they speak English?', 'present-simple')">Do they speak English?</button>
+    </div>
+    <div class="tense" id="past-simple">
+        <h2>Past Simple</h2>
+        <button onclick="recognizeVoice('I played football.', 'past-simple')">I played football.</button>
+        <button onclick="recognizeVoice('She did not like tea.', 'past-simple')">She did not like tea.</button>
+        <button onclick="recognizeVoice('Did you read books?', 'past-simple')">Did you read books?</button>
+        <button onclick="recognizeVoice('He went to school.', 'past-simple')">He went to school.</button>
+        <button onclick="recognizeVoice('They played chess.', 'past-simple')">They played chess.</button>
+        <button onclick="recognizeVoice('We did not watch TV.', 'past-simple')">We did not watch TV.</button>
+        <button onclick="recognizeVoice('Did they speak English?', 'past-simple')">Did they speak English?</button>
+    </div>
+    <div class="tense" id="future-simple">
+        <h2>Future Simple</h2>
+        <button onclick="recognizeVoice('I will play football.', 'future-simple')">I will play football.</button>
+        <button onclick="recognizeVoice('She will not like tea.', 'future-simple')">She will not like tea.</button>
+        <button onclick="recognizeVoice('Will you read books?', 'future-simple')">Will you read books?</button>
+        <button onclick="recognizeVoice('He will go to school.', 'future-simple')">He will go to school.</button>
+        <button onclick="recognizeVoice('They will play chess.', 'future-simple')">They will play chess.</button>
+        <button onclick="recognizeVoice('We will not watch TV.', 'future-simple')">We will not watch TV.</button>
+        <button onclick="recognizeVoice('Will they speak English?', 'future-simple')">Will they speak English?</button>
+    </div>
+    <script>
+        function recognizeVoice(example, tense) {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                alert(`You said: ${transcript}\nExpected: ${example}`);
+            };
+            recognition.onerror = function(event) {
+                alert('Error occurred in recognition: ' + event.error);
+            };
+            recognition.start();
+        }
+    </script>
+</body>
+</html>
